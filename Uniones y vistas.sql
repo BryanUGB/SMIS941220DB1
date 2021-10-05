@@ -24,5 +24,24 @@ ON p.CategoryID= c.CategoryID
 INNER JOIN Customers u
 ON CustomerID= u.CustomerID
 
+--modificar la vista anterior de tal manera que muestre los nombres que estan incluido o no
+--en las ordenes
+ALTER VIEW Listaproducto AS
+SELECT
+     p.ProductName PRODUCTOS,
+     c.CategoryName CATEGORIAS,
+     Orde.OrderID  ID_ORDEN
+FROM Products p
+LEFT JOIN [Order Details] Orde
+ON p.ProductID= Orde.ProductID
+INNER JOIN Categories c
+ON p.CategoryID = c.CategoryID;
+
+SELECT * FROM Listaproducto
+
+
+
+
+
 
 

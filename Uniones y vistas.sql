@@ -40,6 +40,21 @@ ON p.CategoryID = c.CategoryID;
 SELECT * FROM Listaproducto
 
 
+---Modificamos el ejercicio anterior usando un FULL JOIN
+
+ALTER VIEW Listaproducto AS
+SELECT
+     p.ProductName PRODUCTOS,
+     c.CategoryName CATEGORIAS,
+     Orde.OrderID  ID_ORDEN
+FROM Products p
+FULL JOIN [Order Details] Orde
+ON p.ProductID= Orde.ProductID
+INNER JOIN Categories c
+ON p.CategoryID = c.CategoryID;
+
+SELECT * FROM Listaproducto
+
 
 
 
